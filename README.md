@@ -1,5 +1,8 @@
 # Weekday Job Listing with infinite loading
 
+## Live App URL: https://weekday-job-listing.netlify.app/
+
+
 ## Setup
 
 1. **Clone the Repository:**
@@ -50,22 +53,5 @@ or
 yarn build
 ```
 
-## Testing
-
-```bash
-npm test
-```
-
-or
-
-```bash
-yarn test
-```
-
-## More Commands
-
-- Serve production build: `npm run serve`
-- Lint files: `npm run lint`
-- Format files: `npm run format`
 
 
