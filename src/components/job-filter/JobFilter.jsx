@@ -13,9 +13,11 @@ import { setJobs, useAppDispatch, useAppSelector } from "../../store";
 import { experiences, roles, salaries } from "../../constants/filters";
 
 export const JobFilter = ({ refetchJobs }) => {
+  // Retrieving jobs from Redux store
   const jobs = useAppSelector((state) => state.jobs.value);
   const dispatch = useAppDispatch();
 
+  // Setting up search parameters using useSearchParams hook
   const [filterParams, setFilterParams] = useSearchParams({
     q: "",
     role: "[]",
@@ -23,6 +25,7 @@ export const JobFilter = ({ refetchJobs }) => {
     experience: "",
   });
 
+  // Retrieving filter parameters from the URL query
   const q = filterParams.get("q") || "";
   const role = filterParams.get("role")
     ? JSON.parse(filterParams.get("role"))
@@ -30,11 +33,13 @@ export const JobFilter = ({ refetchJobs }) => {
   const experience = Number(filterParams.get("experience")) || null;
   const salary = Number(filterParams.get("salary")) || null;
 
+  // Event handler for role filter change
   const handleRoleChange = (e) => {
     const selectedRoles = e.target.value;
     if (!selectedRoles.length) {
       refetchJobs();
     }
+    // Updating role filter in URL query
     setFilterParams(
       (prev) => {
         prev.set("role", JSON.stringify(selectedRoles));
@@ -42,15 +47,18 @@ export const JobFilter = ({ refetchJobs }) => {
       },
       { replace: true }
     );
+    // Filtering jobs based on selected roles and updating Redux store
     const newJobs = jobs.filter((job) => selectedRoles.includes(job.jobRole));
     dispatch(setJobs(newJobs));
   };
 
+  // Event handler for experience filter change
   const handleExperienceChange = (e) => {
     const selectedExperience = e.target.value;
     if (!selectedExperience) {
       refetchJobs();
     }
+    // Updating experience filter in URL query
     setFilterParams(
       (prev) => {
         prev.set("experience", selectedExperience);
@@ -58,15 +66,18 @@ export const JobFilter = ({ refetchJobs }) => {
       },
       { replace: true }
     );
+    // Filtering jobs based on selected experience and updating Redux store
     const newJobs = jobs.filter((job) => job.minExp === selectedExperience);
     dispatch(setJobs(newJobs));
   };
 
+  // Event handler for salary filter change
   const handleSalaryChange = (e) => {
     const selectedSalary = e.target.value;
     if (!selectedSalary) {
       refetchJobs();
     }
+    // Updating salary filter in URL query
     setFilterParams(
       (prev) => {
         prev.set("salary", selectedSalary);
@@ -74,15 +85,18 @@ export const JobFilter = ({ refetchJobs }) => {
       },
       { replace: true }
     );
+    // Filtering jobs based on selected salary and updating Redux store
     const newJobs = jobs.filter((job) => job.minJdSalary >= selectedSalary);
     dispatch(setJobs(newJobs));
   };
 
+  // Event handler for search input change
   const handleSearch = (e) => {
     const query = e.target.value;
     if (!query) {
       refetchJobs();
     }
+    // Updating search query in URL query
     setFilterParams(
       (prev) => {
         prev.set("q", query);
@@ -90,12 +104,14 @@ export const JobFilter = ({ refetchJobs }) => {
       },
       { replace: true }
     );
+    // Filtering jobs based on search query and updating Redux store
     const newJobs = jobs.filter((job) =>
       job?.companyName?.toLowerCase().includes(query.toLowerCase())
     );
     dispatch(setJobs(newJobs));
   };
 
+  // Event handler to clear all filters
   const clearFilters = () => {
     setFilterParams({});
     refetchJobs();

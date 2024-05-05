@@ -1,4 +1,3 @@
-// import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import App from "./App.jsx";
@@ -9,7 +8,6 @@ import { muiTheme } from "./config/muiTheme.js";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
   <BrowserRouter>
     <Provider store={store}>
       <ThemeProvider theme={muiTheme}>
@@ -17,5 +15,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </ThemeProvider>
     </Provider>
   </BrowserRouter>
-  // </React.StrictMode>
 );

@@ -1,8 +1,71 @@
-# React + Vite
+# Weekday Job Listing with infinite loading
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup
 
-Currently, two official plugins are available:
+1. **Clone the Repository:**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   ```bash
+   git clone https://github.com/vishalguptax/weekday-infinite-scroll.git
+   ```
+
+2. **Navigate to the Project:**
+
+   ```bash
+   cd your-project-directory
+   ```
+
+3. **Install Dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+   or
+
+   ```bash
+   yarn
+   ```
+
+## Development
+
+```bash
+npm run dev
+```
+
+or
+
+```bash
+yarn dev
+```
+
+## Production Build
+
+```bash
+npm run build
+```
+
+or
+
+```bash
+yarn build
+```
+
+## Testing
+
+```bash
+npm test
+```
+
+or
+
+```bash
+yarn test
+```
+
+## More Commands
+
+- Serve production build: `npm run serve`
+- Lint files: `npm run lint`
+- Format files: `npm run format`
+
+
