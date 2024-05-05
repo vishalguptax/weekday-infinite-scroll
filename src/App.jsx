@@ -58,8 +58,11 @@ function App() {
   // Rendering JSX
   return (
     <Container>
-      <Typography variant="h4" textAlign={"center"} my={4}>
-        Weekday Job Search
+      <Typography variant="h5" textAlign={"center"} my={4}>
+        Weekday Jobs Listing By{" "}
+        <a href="https://www.linkedin.com/in/vishalgupta26/" target="_blank">
+          Vishal Gupta
+        </a>
       </Typography>
 
       {/* JobFilter component to filter job results */}
