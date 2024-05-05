@@ -2,6 +2,10 @@ import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { getJobs } from "./services/jobs.api";
 import { setJobs, useAppDispatch, useAppSelector } from "./store";
+import { JobCard } from "./components/job-card/JobCard";
+import { Container, Grid, Typography } from "@mui/material";
+import { JobFilter } from "./components/job-filter/JobFilter";
+import { JobCardLoader } from "./components/job-card/JobCardLoader";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -16,7 +20,7 @@ function App() {
     try {
       const { data } = await getJobs(payload);
       const { jdList } = data;
-      dispatch(setJobs(jdList ?? []));
+      dispatch(setJobs([...jobs, ...(jdList ?? [])]));
     } catch (error) {
       console.log(error);
       alert("Something went wrong");
@@ -47,16 +51,29 @@ function App() {
   }, [handleLoadMore]);
 
   return (
-    <div>
-      <h1>Jobs</h1>
-      {jobs?.map((job) => (
-        <div key={job?.jdUid}>
-          <h3>{job?.companyName}</h3>
-          <p>{job?.jobDetailsFromCompany}</p>
-        </div>
-      ))}
-      {isLoading && <div>Loading...</div>}
-    </div>
+    <Container>
+      <Typography variant="h4" textAlign={"center"} my={4}>
+        Weekday Job Search
+      </Typography>
+
+      <JobFilter refetchJobs={fetchJobs} />
+
+      <Grid container spacing={4}>
+        {jobs?.map((job) => (
+          <Grid
+            key={job?.jdUid}
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            <JobCard data={job} />
+          </Grid>
+        ))}
+        {isLoading && <JobCardLoader />}
+      </Grid>
+    </Container>
   );
 }
 

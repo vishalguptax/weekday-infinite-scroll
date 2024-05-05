@@ -1,0 +1,19 @@
+.job-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .job-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .job-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}

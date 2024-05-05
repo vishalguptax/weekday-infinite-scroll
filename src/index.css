@@ -1,14 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  font-style: normal;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --muted-gray: #8b8b8b;
+  --primary-gray: #4d596a;
+  --black: #000000de;
+  --purple: #4943da;
+  --green: #55efc4
 }
+
+body {
+  min-height: 100vh;
+  color: var(--black);
+  /* padding: 0 5rem; */
+}
+
+/* @media screen and (max-width: 768px) {
+  body {
+    padding: 0 2rem;
+  }
+
+} */
