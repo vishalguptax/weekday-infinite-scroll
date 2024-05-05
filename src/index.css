@@ -17,23 +17,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  --muted-gray: #8b8b8b;
-  --primary-gray: #4d596a;
-  --black: #000000de;
-  --purple: #4943da;
-  --green: #55efc4
 }
 
 body {
   min-height: 100vh;
   color: var(--black);
-  /* padding: 0 5rem; */
 }
-
-/* @media screen and (max-width: 768px) {
-  body {
-    padding: 0 2rem;
-  }
-
-} */
